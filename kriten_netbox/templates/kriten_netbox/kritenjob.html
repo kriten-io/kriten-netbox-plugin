@@ -1,0 +1,77 @@
+{% extends 'generic/object.html' %}
+{% load buttons %}
+{% load perms %}
+
+{# Remove edit button #}
+{% block control-buttons %}
+{% if request.user|can_delete:object %}
+  {% delete_button object %}
+{% endif %}
+{% endblock control-buttons %}
+
+{% block content %}
+  <div class="row mb-3">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Kriten Job</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Kriten</th>
+              <td>
+                <a href="{{ object.kriten_task.get_absolute_url }}">{{ object.kriten_task }}</a>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Name</th>
+              <td>{{ object.name }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Description</th>
+              <td>{{ object.description|placeholder }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Details</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Name</th>
+              <td>{{ object.name}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Owner</th>
+              <td>{{ object.owner}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Start Time</th>
+              <td>{{ object.start_time}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Completion Time</th>
+              <td>{{ object.completion_time}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col col-md-12">
+      <div class="card">
+        <h5 class="card-header">Standard Out</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <td><pre>{{ object.stdout}}</pre></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
