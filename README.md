@@ -2,9 +2,11 @@
 
 The Kriten NetBox Plugin allows control of Kriten deployments (clusters) from NetBox. You can add clusters, runners, tasks and launch jobs from the plugin.
 
-## Docker Install
-
 To utilize plugins that have been created by users within the [NetBox Community](https://github.com/netbox-community/netbox/wiki/Plugins) a custom Docker image must be created. 
+
+NetBox instructions to build and deploy plugins [Using NetBox Plugins](https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins)
+
+## Docker Install
 
 ```
 git clone -b release https://github.com/netbox-community/netbox-docker.git
