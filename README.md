@@ -1,4 +1,6 @@
-## Kriten NetBox Plugin
+# Kriten NetBox Plugin
+
+The Kriten NetBox Plugin allows control of Kriten deployments (clusters) from NetBox. You can add clusters, runners, tasks and launch jobs from the plugin.
 
 ## Docker Install
 
@@ -24,7 +26,7 @@ RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /opt/netbox/p
 ```
 
 Edit docker-compose.override.yml:
-```
+``` yaml
 services:
   netbox:
     image: netbox:latest-plugins
@@ -43,7 +45,7 @@ services:
 ```
 
 Edit configuration/configuration.py:
-```
+``` python
 PLUGINS = [“kriten_netbox”]
 ```
 
@@ -67,7 +69,7 @@ docker push <your_repository>/<image_name>:<image_tag>
 ## kind (Kubernetes) Install
 
 Create a kind configuration file:
-```
+``` yaml
 # three node (two workers) cluster config
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -97,7 +99,7 @@ helm repo add startechnica https://startechnica.github.io/apps
 
 helm install netbox startechnica/netbox \
     --set global.imageRepository=<your_repository>/<image_name> \
-  --set global.imageTag=<image_tag>  \
+    --set global.imageTag=<image_tag>  \
     --set plugins={kriten_netbox} \
     --set superuser.password=<password>
 ```
