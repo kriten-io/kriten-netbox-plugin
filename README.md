@@ -44,6 +44,7 @@ kind-worker2         Ready    <none>          22s   v1.31.0
 ```
 
 Helm install NetBox:
+
 :green_circle: **Tip:** To use publicly available image:
 ```
 helm repo add startechnica https://startechnica.github.io/apps
