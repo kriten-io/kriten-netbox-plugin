@@ -100,3 +100,6 @@ spec:
               number: 80
 ```
 
+Connect to http://kriten-local and http://netbox-local
+
+For information to use [Kriten](https://kriten.io/user_guide/getting_started/)
