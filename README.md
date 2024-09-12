@@ -68,6 +68,10 @@ Edit /etc/hosts:
 192.168.1.62    kriten-local
 192.168.1.62    netbox-local
 ```
+Install nginx:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+```
 
 Apply the ingress:
 ``` yaml
