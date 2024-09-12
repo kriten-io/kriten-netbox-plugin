@@ -20,6 +20,7 @@ kriten-netbox
 ```
 
 Edit Dockerfile-Plugins:
+
 :warning: **Warning** this is incomplete. Django templates are missing.
 Workaround was to copy templates/kriten_templates to the netbox-docker directory
 and add COPY to Docker-Plugins file.
