@@ -2,7 +2,7 @@ from netbox.plugins import PluginConfig
 
 __author__ = "Steve Corp"
 __email__ = "steve@kubecode.io"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 class KritenConfig(PluginConfig):
     name = 'kriten_netbox'
