@@ -29,6 +29,7 @@ class KritenClusterForm(NetBoxModelForm):
     class Meta:
         model = KritenCluster
         fields = ('name', 'kriten_url', 'api_token', 'tags')
+        widgets = {"name": forms.TextInput(attrs={"class": "text-lowercase"})}
 
 
 class KritenRunnerForm(NetBoxModelForm):
@@ -41,6 +42,7 @@ class KritenRunnerForm(NetBoxModelForm):
         fields = (
             'kriten_cluster', 'name', 'branch', 'giturl', 'image', 'token', 'secrets'
         )
+        widgets = {"name": forms.TextInput(attrs={"class": "text-lowercase"})}
 
 
 class KritenRunnerFilterForm(NetBoxModelFilterSetForm):
@@ -61,6 +63,7 @@ class KritenTaskForm(NetBoxModelForm):
         fields = (
             'kriten_cluster', 'name', 'runner', 'command', 'schema'
         )
+        widgets = {"name": forms.TextInput(attrs={"class": "text-lowercase"})}
 
 
 class KritenTaskFilterForm(NetBoxModelFilterSetForm):
