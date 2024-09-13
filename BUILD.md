@@ -19,11 +19,14 @@ Edit plugin_requirements.txt:
 kriten-netbox
 ```
 
-Edit Dockerfile-Plugins:
-
-:warning: **Warning** this is incomplete. Django templates are missing.
-Workaround was to copy templates/kriten_templates to the netbox-docker directory
+:warning: **Warning** Django templates are missing.
+Workaround was to copy templates/kriten_netbox to the netbox-docker directory
 and add COPY to Docker-Plugins file.
+```
+cp -r ../kriten-netbox-plugin/kriten_netbox/templates/ .
+```
+
+Edit Dockerfile-Plugins
 ```
 FROM netboxcommunity/netbox:latest
 
@@ -63,7 +66,7 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
-Use this command to set the super user:
+Use this command to set the superuser:
 ```
 docker exec -it netbox-docker-netbox-1 python manage.py createsuperuser
 ```
