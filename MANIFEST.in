@@ -1,0 +1,1 @@
+recursive-include kriten_netbox/templates *.html
