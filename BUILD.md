@@ -19,13 +19,6 @@ Edit plugin_requirements.txt:
 kriten-netbox
 ```
 
-:warning: **Warning** Django templates are missing.
-Workaround was to copy templates/kriten_netbox to the netbox-docker directory
-and add COPY to Docker-Plugins file.
-```
-cp -r ../kriten-netbox-plugin/kriten_netbox/templates/ .
-```
-
 Edit Dockerfile-Plugins
 ```
 FROM netboxcommunity/netbox:latest
