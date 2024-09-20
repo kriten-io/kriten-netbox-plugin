@@ -25,8 +25,6 @@ FROM netboxcommunity/netbox:latest
 
 COPY ./plugin_requirements.txt /opt/netbox/
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /opt/netbox/plugin_requirements.txt
-# Copy the missing templates
-COPY ./kriten_templates /opt/netbox/netbox/templates/kriten_netbox/
 ```
 
 Edit docker-compose.override.yml:
@@ -70,5 +68,5 @@ docker tag netbox:latest-plugins <your_repository>/<image_name>:<image_tag>
 docker push <your_repository>/<image_name>:<image_tag>
 ```
 
-To access netbox go to http://loalhost:8000
+To access netbox go to http://localhost:8000
 
