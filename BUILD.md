@@ -17,6 +17,7 @@ touch plugin_requirements.txt Dockerfile-Plugins docker-compose.override.yml
 Edit plugin_requirements.txt:
 ```
 kriten-netbox
+GitPython
 ```
 
 Edit Dockerfile-Plugins
