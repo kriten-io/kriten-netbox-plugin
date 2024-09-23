@@ -277,7 +277,6 @@ class KritenJob(NetBoxModel):
         payload = json.dumps(self.extra_vars)
         launch_url = f"{kriten_url}/api/v1/jobs/{kriten_task_name}"
         launch = requests.request("POST",launch_url, headers=headers, data=payload)
-        print("LAUNCH:", launch.content)
         if launch.status_code == 200:
             job_id = launch.json()["id"]
         else:

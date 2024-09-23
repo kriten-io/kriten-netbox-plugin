@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from netbox.forms import NetBoxModelForm, NetBoxModelFilterSetForm
 from utilities.forms.fields import CommentField, DynamicModelChoiceField
 from .models import KritenCluster, KritenRunner, KritenTask, KritenJob
-from .services import reach_cluster
+from .services import reach_cluster, reach_git_repo
 
 
 class KritenClusterForm(NetBoxModelForm):
@@ -36,6 +36,19 @@ class KritenRunnerForm(NetBoxModelForm):
     kriten_cluster = DynamicModelChoiceField(
         queryset=KritenCluster.objects.all()
     )
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        giturl = cleaned_data.get("giturl")
+        branch = cleaned_data.get("branch")
+        token = cleaned_data.get("token")
+
+        err_msg = reach_git_repo(giturl=giturl, branch=branch, token=token)
+        if err_msg:
+            raise ValidationError(err_msg)
+        
+        return super().clean()
+
 
     class Meta:
         model = KritenRunner
