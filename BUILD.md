@@ -26,6 +26,7 @@ FROM netboxcommunity/netbox:latest
 
 COPY ./plugin_requirements.txt /opt/netbox/
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /opt/netbox/plugin_requirements.txt
+RUN apt-get update && apt-get install -y git
 ```
 
 Edit docker-compose.override.yml:
