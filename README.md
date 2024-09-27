@@ -9,6 +9,10 @@ Open the Kriten swagger page http://kriten-local/swagger/api/index.html
 
 ![Login to Kriten](images/kriten-login.png)
 
+### Press the ${\textsf{\color{lightgreen}Authorize}}$ button at top of the swagger page and set value to ```Bearer <login_token>```
+
+![Authorise with login token](images/kriten-authorise.png)
+
 ### Create an API token
 
 ![Create Kriten API token](images/kriten-api-token.png)
