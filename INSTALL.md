@@ -62,8 +62,8 @@ helm install kriten kriten/kriten
 ## Edit /etc/hosts:
 ```
 # Hostnames must match kubernetes ingress hosts
-192.168.1.62    kriten-local
-192.168.1.62    netbox-local
+<public_ip>     kriten-local
+<public_ip>     netbox-local
 ```
 ## Install nginx:
 ```
