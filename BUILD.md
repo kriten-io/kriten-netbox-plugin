@@ -33,7 +33,7 @@ Edit docker-compose.override.yml:
 ``` yaml
 services:
   netbox:
-    image: netbox:latest-plugins
+    image: <registry>/<repo>:<tag>
     pull_policy: never
     ports:
       - 8000:8080
@@ -64,11 +64,36 @@ Use this command to set the superuser:
 docker exec -it netbox-docker-netbox-1 python manage.py createsuperuser
 ```
 
-If you want to use this image on Kubernetes:
-```
-docker tag netbox:latest-plugins <your_repository>/<image_name>:<image_tag>
-docker push <your_repository>/<image_name>:<image_tag>
+To access netbox go to http://localhost:8000
+
+To build multi-platform images:
+
+Add additional platforms to docker-compose.override.yml:
+``` yaml
+services:
+  netbox:
+    image: <registry>/<repo>:<tag>
+    pull_policy: never
+    ports:
+      - 8000:8080
+    build:
+      context: .
+      dockerfile: Dockerfile-Plugins
+      platforms:
+        - linux/arm64
+        - linux/amd64
+  netbox-worker:
+    image: netbox:latest-plugins
+    pull_policy: never
+  netbox-housekeeping:
+    image: netbox:latest-plugins
+    pull_policy: never
 ```
 
-To access netbox go to http://localhost:8000
+Login to dockerhub then build:
+```
+COMPOSE_DOCKER_CLI_BUILD=1 \  
+DOCKER_BUILDKIT=1 \
+docker compose build --no-cache --push
+```
 
