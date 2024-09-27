@@ -48,7 +48,7 @@ helm repo add startechnica https://startechnica.github.io/apps
 
 helm install netbox startechnica/netbox \
     --set global.imageRepository=kubecodeio/netbox \
-    --set global.imageTag=4.1  \
+    --set global.imageTag=4.1.3  \
     --set plugins={kriten_netbox} \
     --set superuser.password=kubecode
 ```
