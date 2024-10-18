@@ -89,6 +89,10 @@ services:
     image: netbox:latest-plugins
     pull_policy: never
 ```
+Create a buildx builder
+```
+docker buildx create --name builder --use --bootstrap
+```
 
 Login to dockerhub then build:
 ```
