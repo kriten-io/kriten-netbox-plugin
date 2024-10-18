@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='kriten-netbox',
-    version='0.1.3',
+    version='0.1.4',
     description='Configure Kriten and run fobs jobs from NetBox',
     install_requires=[],
     packages=find_packages(),
