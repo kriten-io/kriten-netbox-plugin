@@ -288,7 +288,7 @@ class KritenJob(NetBoxModel):
         return
 
     def save(self, *args, **kwargs):
-        if not self.completed:
+        if not self.start_time:
             self.launch_job()
         super(KritenJob, self).save(*args, **kwargs)
 
